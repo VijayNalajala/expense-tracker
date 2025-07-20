@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Edit Expense</h2>
+
+<form method="POST" class="row g-3">
+    <div class="col-md-4">
+        <label for="category" class="form-label">Category</label>
+        <input type="text" class="form-control" name="category" id="category" value="{{ expense.category }}" required>
+    </div>
+    
+    <div class="col-md-4">
+        <label for="amount" class="form-label">Amount (₹)</label>
+        <input type="number" class="form-control" name="amount" id="amount" value="{{ expense.amount }}" step="0.01" required>
+    </div>
+
+    <div class="col-md-4">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" class="form-control" name="date" id="date" value="{{ expense.date }}" required>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-success">Update</button>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+{% endblock %}
